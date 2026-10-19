@@ -1,0 +1,46 @@
+.inline-ok, .inline-wait { display: inline-flex; align-items: center; gap: 4px; font-size: 11.5px; white-space: nowrap; }
+.inline-ok { color: var(--green); }
+.inline-wait { color: var(--text-3); }
+
+/* ---------- Sơ đồ kho ---------- */
+.zone-cards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-bottom: 16px; }
+.zone-card { text-align: left; padding: 12px 14px; cursor: pointer; font: inherit; color: inherit; }
+.zone-card:hover { border-color: var(--border-strong); }
+.zone-card.is-active { border-color: var(--brand); box-shadow: 0 0 0 1px var(--brand); }
+
+.map { padding: 14px 16px; overflow-x: auto; }
+.map__head { display: flex; justify-content: space-between; gap: 8px; margin-bottom: 10px; font-size: 12.5px; }
+.map__grid { display: grid; gap: 4px; min-width: 460px; }
+.map__col { font-family: var(--mono); font-size: 10px; color: var(--text-3); text-align: center; }
+.map__row { font-size: 11.5px; color: var(--text-2); display: flex; align-items: center; }
+.map__aisle {
+  margin-top: 12px; padding: 8px; text-align: center; font-size: 11.5px; color: var(--text-3);
+  border: 1px dashed var(--border-strong); border-radius: var(--radius-sm);
+}
+
+/* Một màu, nhạt → đậm theo mức lấp đầy */
+.bay {
+  position: relative; height: 34px; border-radius: 4px; border: 1px solid transparent; cursor: pointer; padding: 0;
+}
+.map-legend .bay { display: inline-block; width: 16px; height: 12px; cursor: default; vertical-align: -2px; }
+.bay.is-0 { background: var(--surface); border: 1px dashed var(--border-strong); }
+.bay.is-1 { background: #d6e6f7; }
+.bay.is-2 { background: #96bde6; }
+.bay.is-3 { background: #4f8ccf; }
+.bay.is-4 { background: #0b5cab; }
+.bay:hover { outline: 2px solid var(--navy); outline-offset: 1px; }
+.bay.is-counting { box-shadow: inset 0 0 0 2px var(--amber); }
+.bay.is-selected { outline: 2px solid var(--orange); outline-offset: 2px; }
+.bay__dot {
+  position: absolute; top: 4px; right: 4px; width: 6px; height: 6px; border-radius: 50%;
+  background: #fff; box-shadow: 0 0 0 1px rgba(11, 31, 51, 0.3);
+}
+.map-legend { display: flex; flex-wrap: wrap; gap: 12px; font-size: 11.5px; color: var(--text-2); margin-left: auto; }
+.map-legend span { display: inline-flex; align-items: center; gap: 5px; }
+
+.bay-line { padding: 8px 0; border-top: 1px solid var(--border); }
+.bay-line:first-of-type { border-top: 0; padding-top: 0; }
+
+@media (max-width: 1200px) {
+  .zone-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}

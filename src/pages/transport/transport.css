@@ -1,0 +1,65 @@
+/* ---------- Lệnh vận chuyển ---------- */
+.route-mini { display: flex; flex-direction: column; gap: 10px; position: relative; }
+.route-mini > div { display: flex; gap: 10px; align-items: flex-start; font-size: 12.5px; }
+.route-mini__dot { width: 10px; height: 10px; border-radius: 50%; background: var(--navy); margin-top: 4px; flex-shrink: 0; }
+.route-mini__dot--end { background: #fff; border: 2px solid var(--brand); }
+.route-mini::before { content: ''; position: absolute; left: 4.5px; top: 16px; height: calc(100% - 34px); width: 1px; background: var(--border-strong); }
+
+/* ---------- Điều phối xe ---------- */
+.dispatch { display: grid; grid-template-columns: 290px minmax(0, 1fr); gap: 16px; align-items: start; }
+.dispatch__side { display: flex; flex-direction: column; gap: 16px; }
+.queue-item {
+  display: flex; flex-direction: column; gap: 2px; width: 100%; text-align: left; cursor: pointer;
+  border: 0; border-top: 1px solid var(--border); background: none; padding: 10px 14px;
+}
+.queue-item:hover { background: #f8fafc; }
+.queue-item.is-active { background: var(--brand-50); box-shadow: inset 3px 0 0 var(--brand); }
+.assigned-item { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 8px 14px; border-top: 1px solid var(--border); }
+
+.board { overflow: hidden; }
+.board__scroll { overflow-x: auto; }
+.board__head, .board__row { display: grid; grid-template-columns: 200px minmax(560px, 1fr); }
+.board__head { border-bottom: 1px solid var(--border); }
+.board__axis { position: relative; height: 32px; }
+.board__axis span { position: absolute; top: 10px; transform: translateX(-50%); font-family: var(--mono); font-size: 10px; color: var(--text-3); }
+.board__label { padding: 10px 14px; border-right: 1px solid var(--border); background: var(--surface); }
+.board__row { border-bottom: 1px solid var(--border); min-height: 74px; transition: opacity 0.15s; }
+.board__row:last-child { border-bottom: 0; }
+.board__row.is-dim { opacity: 0.45; }
+.board__lane { position: relative; }
+.board__grid { position: absolute; top: 0; bottom: 0; width: 1px; background: var(--gray-bg); }
+.board__now { position: absolute; top: 0; bottom: 0; width: 2px; background: var(--orange); z-index: 2; }
+.board__bar {
+  position: absolute; top: 14px; bottom: 14px; border-radius: 6px; padding: 4px 8px; overflow: hidden;
+  display: flex; flex-direction: column; justify-content: center; font-size: 11px; line-height: 1.25; z-index: 1;
+  min-width: 4px;
+}
+.board__bar b { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.board__bar span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; opacity: 0.85; }
+.board__bar.is-planned { background: var(--brand-100); color: var(--brand-600); border: 1px solid #a9c6ea; }
+.board__bar.is-running { background: var(--brand); color: #fff; }
+.board__bar.is-new { box-shadow: 0 0 0 2px var(--green); }
+.board__ghost {
+  position: absolute; top: 10px; bottom: 10px; border: 2px dashed var(--brand); border-radius: 6px;
+  background: rgba(11, 92, 171, 0.06); z-index: 3; pointer-events: none;
+}
+.board__ghost.is-conflict { border-color: var(--amber); background: rgba(160, 94, 0, 0.08); }
+
+/* ---------- Container, POD: ô ảnh ---------- */
+.eir { padding: 10px 12px; border: 1px solid var(--border); border-radius: var(--radius-sm); margin-bottom: 8px; }
+.eir.is-damaged { border-color: #f3c2bd; background: #fffafa; }
+/* ---------- Chuyến ---------- */
+.gps { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 12px; background: var(--brand-50); border-radius: var(--radius-sm); padding: 10px 12px; }
+.gps > div { display: flex; gap: 8px; align-items: flex-start; color: var(--brand); }
+.gps b { color: var(--text); font-size: 12.5px; }
+.trip-order { padding: 8px 0; border-top: 1px solid var(--border); }
+.trip-order:first-of-type { border-top: 0; padding-top: 0; }
+
+/* ---------- Nhà thầu ---------- */
+.cutoff-row { display: flex; justify-content: space-between; gap: 8px; font-size: 12.5px; padding: 4px 0; }
+.recon { display: flex; justify-content: space-between; align-items: center; gap: 8px; background: var(--gray-bg); border-radius: var(--radius-sm); padding: 10px 12px; }
+
+@media (max-width: 1200px) {
+  .dispatch { grid-template-columns: 1fr; }
+  .gps { grid-template-columns: 1fr; }
+}

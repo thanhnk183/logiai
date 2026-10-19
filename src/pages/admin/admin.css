@@ -1,0 +1,62 @@
+.role-chips { display: flex; flex-wrap: wrap; gap: 4px 6px; }
+.role-chips .pill { height: 28px; font-size: 12px; }
+.invite-form { display: grid; grid-template-columns: 1fr 1fr 220px auto; gap: 10px; align-items: end; }
+
+/* Phân quyền */
+.perm-layout { display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 16px; align-items: start; }
+.role-item { display: block; width: 100%; text-align: left; border: 0; background: none; padding: 10px 16px; border-top: 1px solid var(--border); cursor: pointer; font-size: 12.5px; }
+.role-item:first-child { border-top: 0; }
+.role-item:hover { background: #f8fafc; }
+.role-item.is-active { background: var(--brand-50); box-shadow: inset 3px 0 0 var(--brand); }
+.role-item b { font-weight: 600; }
+.perm-table td, .perm-table th { padding-top: 7px; padding-bottom: 7px; }
+.perm-col { text-align: center !important; width: 92px; }
+.perm-cell {
+  width: 24px; height: 24px; border-radius: 6px; border: 1.5px solid var(--border-strong); background: var(--surface);
+  display: inline-flex; align-items: center; justify-content: center; cursor: pointer; color: #fff; padding: 0;
+}
+.perm-cell.is-on { background: var(--brand); border-color: var(--brand); }
+.perm-cell.is-changed { box-shadow: 0 0 0 3px #ffd9a8; }
+.scope-list { display: flex; flex-direction: column; gap: 8px; }
+.scope-opt { display: flex; gap: 10px; align-items: flex-start; padding: 8px 10px; border: 1px solid var(--border); border-radius: var(--radius-sm); cursor: pointer; font-size: 12.5px; }
+.scope-opt.is-active { border-color: #a9c6ea; background: var(--brand-50); }
+.scope-opt b { font-weight: 600; }
+
+/* Quy trình duyệt */
+.flow { display: flex; flex-wrap: wrap; align-items: stretch; gap: 8px; }
+.flow__node { border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 8px 10px; min-width: 150px; max-width: 220px; display: flex; flex-direction: column; gap: 2px; font-size: 12.5px; background: var(--surface); }
+.flow__node b { font-weight: 600; }
+.flow__node--start, .flow__node--end { flex-direction: row; align-items: center; gap: 6px; min-width: 0; background: var(--gray-bg); border-style: dashed; }
+.flow__node--end { color: var(--green); }
+.flow__arrow { align-self: center; color: var(--text-3); flex-shrink: 0; }
+.flow__when { font-size: 11px; color: var(--amber); }
+.flow__sla { display: flex; align-items: center; gap: 4px; font-size: 11.5px; color: var(--text-2); margin-top: 4px; }
+.flow__sla input { width: 44px; border: 1px solid var(--border-strong); border-radius: 4px; padding: 1px 4px; font-size: 12px; }
+.switch { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; cursor: pointer; }
+.switch input { display: none; }
+.switch__track { width: 28px; height: 16px; border-radius: 999px; background: var(--border-strong); position: relative; transition: background 0.15s; }
+.switch__track::after { content: ''; position: absolute; top: 2px; left: 2px; width: 12px; height: 12px; border-radius: 50%; background: #fff; transition: left 0.15s; }
+.switch input:checked + .switch__track { background: var(--green); }
+.switch input:checked + .switch__track::after { left: 14px; }
+
+/* Tích hợp */
+.int-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; }
+.int-card { text-align: left; padding: 12px 14px; cursor: pointer; font-size: 12.5px; }
+.int-card:hover { border-color: #a9c6ea; }
+.int-card.is-active { border-color: var(--brand); box-shadow: 0 0 0 1px var(--brand); }
+.int-log { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; font-size: 12.5px; }
+.int-log li { display: grid; grid-template-columns: 8px 92px 1fr; gap: 8px; align-items: baseline; }
+.int-log__dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+.int-log .mono { font-size: 11.5px; }
+
+/* Nhật ký */
+.audit-table td:first-child, .audit-table th:first-child { padding-left: 16px; }
+.diff { display: grid; grid-template-columns: 1fr; gap: 3px; padding: 6px 0; border-top: 1px solid var(--border); font-size: 12.5px; }
+.diff:first-of-type { border-top: 0; }
+.diff__before { background: var(--red-bg); color: var(--red); text-decoration: line-through; padding: 2px 6px; border-radius: 4px; }
+.diff__after { background: var(--green-bg); color: var(--green); padding: 2px 6px; border-radius: 4px; }
+
+@media (max-width: 1200px) {
+  .perm-layout { grid-template-columns: 1fr; }
+  .invite-form { grid-template-columns: 1fr 1fr; }
+}

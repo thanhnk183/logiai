@@ -1,0 +1,12 @@
+.doc-state { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; white-space: nowrap; }
+
+.total-row td { background: var(--gray-bg); }
+
+/* Thanh tỉ lệ phân luồng: các đoạn cách nhau 2px */
+.share-bar { display: flex; gap: 2px; height: 18px; border-radius: 4px; overflow: hidden; margin: 6px 0 14px; }
+.share-bar__seg { min-width: 4px; }
+.share-legend { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.share-legend > div { display: flex; flex-direction: column; gap: 2px; font-size: 12px; }
+.share-legend span { display: inline-flex; align-items: center; gap: 6px; }
+.share-legend i { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
+.share-legend b { font-size: 18px; }

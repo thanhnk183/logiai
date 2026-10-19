@@ -1,0 +1,29 @@
+.activities-grid { display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 16px; align-items: start; }
+.side-col { display: flex; flex-direction: column; gap: 16px; }
+
+.form-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.btn:disabled { opacity: 0.55; cursor: not-allowed; }
+
+.log-row { display: flex; gap: 12px; padding: 12px 16px; border-top: 1px solid var(--border); }
+.log-row__icon { width: 30px; height: 30px; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.log-row__head { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 2px; }
+.log-row__reminder { color: var(--brand); font-size: 11.5px; margin-top: 2px; }
+
+.appt { display: flex; gap: 12px; padding: 10px 14px; border-top: 1px dashed var(--border); }
+.appt__date {
+  width: 40px; height: 44px; border: 1px solid var(--border-strong); border-radius: 8px; flex-shrink: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; line-height: 1.1;
+}
+.appt__date span { font-size: 10px; color: var(--text-2); }
+.appt__date b { font-size: 17px; }
+
+.complaint { padding: 10px 14px; border-top: 1px solid var(--border); }
+
+.reminder { display: flex; gap: 10px; align-items: flex-start; padding: 10px 14px; border-top: 1px solid var(--border); cursor: pointer; }
+.reminder input { width: 16px; height: 16px; margin-top: 2px; accent-color: var(--brand); }
+.reminder.is-done .reminder__text { text-decoration: line-through; color: var(--text-3); }
+
+@media (max-width: 1200px) {
+  .activities-grid { grid-template-columns: 1fr; }
+  .form-grid { grid-template-columns: 1fr; }
+}

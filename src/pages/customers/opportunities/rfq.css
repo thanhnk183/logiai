@@ -1,0 +1,28 @@
+.kanban { display: grid; grid-template-columns: repeat(5, minmax(180px, 1fr)); gap: 12px; margin-bottom: 16px; overflow-x: auto; }
+.kanban__col { background: #eceff4; border-radius: var(--radius); padding: 12px 10px; min-height: 300px; }
+.kanban__head { display: flex; justify-content: space-between; align-items: center; font-weight: 600; margin-bottom: 4px; }
+.kanban__head i { width: 8px; height: 8px; display: inline-block; border-radius: 2px; margin-right: 4px; }
+
+.rfq-card {
+  display: flex; flex-direction: column; gap: 2px; width: 100%; text-align: left; cursor: pointer;
+  background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+  padding: 10px; margin-bottom: 8px; box-shadow: var(--shadow);
+}
+.rfq-card:hover { border-color: var(--border-strong); }
+.rfq-card.is-active { border: 2px solid var(--brand); padding: 9px; }
+.rfq-card__top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px; }
+.rfq-card__foot {
+  display: flex; align-items: center; gap: 8px; margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--border);
+}
+.rfq-card__foot b { flex: 1; }
+
+.rfq-bottom { display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 16px; align-items: start; }
+.rfq-detail__head { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; }
+.rfq-detail__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px 16px; }
+.quote-box { background: var(--gray-bg); border-radius: var(--radius-sm); padding: 10px 12px; }
+
+@media (max-width: 1200px) {
+  .rfq-bottom { grid-template-columns: 1fr; }
+  .rfq-detail__grid { grid-template-columns: repeat(2, 1fr); }
+  .rfq-detail__head { flex-direction: column; }
+}

@@ -1,0 +1,26 @@
+.aging-row { display: flex; align-items: center; gap: 10px; font-size: 12px; padding: 3px 0; }
+.aging-row > span { width: 90px; color: var(--text-2); }
+.aging-row > b { width: 62px; text-align: right; }
+
+.fin-line { padding: 8px 0; border-top: 1px solid var(--border); gap: 12px; }
+.fin-line:first-of-type { border-top: 0; padding-top: 0; }
+.fin-line b { white-space: nowrap; }
+
+/* Thu chi và ngân hàng */
+.matched { display: inline-flex; align-items: center; gap: 5px; color: var(--green); font-size: 12px; font-family: var(--mono); }
+.suggest { display: flex; align-items: center; justify-content: space-between; gap: 10px; font-size: 12px; }
+
+/* Đối soát */
+.recon-compare { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.recon-compare > div { background: var(--gray-bg); border-radius: var(--radius-sm); padding: 10px 12px; display: flex; flex-direction: column; }
+.recon-compare span { font-size: 11px; color: var(--text-2); }
+.recon-compare b { font-size: 16px; }
+.recon-compare .is-diff { background: var(--red-bg); }
+.recon-compare .is-diff b { color: var(--red); }
+
+/* Lãi lỗ theo job */
+.pnl-grid { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 16px; align-items: start; }
+
+@media (max-width: 1200px) {
+  .pnl-grid { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,31 @@
+/* Điểm nghẽn: dòng bấm được */
+.bn-row {
+  display: flex; align-items: center; gap: 10px; padding: 11px 16px; border-top: 1px solid var(--border);
+  color: var(--text); text-decoration: none; font-size: 13px;
+}
+.bn-row:first-child { border-top: 0; }
+.bn-row:hover { background: #f8fafc; }
+.bn-row__label { flex: 1; }
+
+/* Phễu bán hàng */
+.funnel { display: flex; flex-direction: column; gap: 6px; }
+.funnel__row { display: grid; grid-template-columns: 120px minmax(0, 1fr) 96px; gap: 10px; align-items: center; font-size: 12.5px; }
+.funnel__bar { height: 22px; border-radius: 4px; background: var(--brand); min-width: 4px; }
+.funnel__val { text-align: right; white-space: nowrap; }
+.funnel__val b { font-weight: 600; }
+
+/* Báo cáo tự tạo */
+.builder { display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: 16px; align-items: start; }
+.builder__form { display: flex; flex-direction: column; gap: 12px; }
+.saved-item { display: block; width: 100%; text-align: left; border: 0; background: none; padding: 8px 0; border-top: 1px solid var(--border); cursor: pointer; font-size: 12.5px; }
+.saved-item:first-child { border-top: 0; }
+.saved-item:hover b { color: var(--brand); }
+.saved-item.is-active b { color: var(--brand); }
+
+/* Dự báo */
+.driver { display: flex; gap: 10px; padding: 9px 0; border-top: 1px solid var(--border); font-size: 12.5px; }
+.driver:first-child { border-top: 0; padding-top: 0; }
+
+@media (max-width: 1200px) {
+  .builder { grid-template-columns: 1fr; }
+}
