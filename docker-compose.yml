@@ -1,0 +1,52 @@
+version: "3.9"
+
+services:
+  # ─────────────────────────────────────────
+  # Frontend (React + Vite → Nginx)
+  # ─────────────────────────────────────────
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    container_name: logiai-frontend
+    restart: unless-stopped
+    ports:
+      - "3000:80"       # Truy cập tại http://localhost:3000
+    environment:
+      - NODE_ENV=production
+    networks:
+      - logiai-network
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:80"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
+
+  # ─────────────────────────────────────────
+  # Dev server (chạy npm run dev, hot-reload)
+  # Chạy: docker compose --profile dev up
+  # ─────────────────────────────────────────
+  frontend-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: builder
+    container_name: logiai-frontend-dev
+    profiles: ["dev"]
+    command: ["npm", "run", "dev", "--", "--host", "0.0.0.0"]
+    ports:
+      - "5173:5173"     # Truy cập tại http://localhost:5173
+    volumes:
+      - .:/app
+      - /app/node_modules   # Tránh ghi đè node_modules host
+    environment:
+      - NODE_ENV=development
+    networks:
+      - logiai-network
+
+networks:
+  logiai-network:
+    driver: bridge
+    name: logiai-network
